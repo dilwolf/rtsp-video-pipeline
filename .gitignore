@@ -12,3 +12,4 @@ tools/
 # run outputs; the frame the README shows lives in docs/img/
 outputs/
 mlruns/
+mlflow.db
