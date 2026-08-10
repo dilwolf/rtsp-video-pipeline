@@ -1,0 +1,35 @@
+stages:
+  fetch_data:
+    cmd: python src/fetch_data.py
+    deps:
+      - src/fetch_data.py
+    outs:
+      - data/vtest.avi
+      - data/sample_1080p.mp4
+
+  fetch_weights:
+    cmd: python -c "from ultralytics import YOLO; YOLO('yolo11n.pt')"
+    outs:
+      - yolo11n.pt
+
+  decode_bench:
+    cmd: python src/bench_decode.py --frames 600
+    deps:
+      - src/bench_decode.py
+      - src/ffmpeg_reader.py
+      - data/sample_1080p.mp4
+    metrics:
+      - outputs/decode_bench.json:
+          cache: false
+
+  # needs a stream on rtsp://127.0.0.1:8554/cam1; see the README
+  profile:
+    cmd: python src/pipeline.py --max-frames 400
+    deps:
+      - src/pipeline.py
+      - src/ffmpeg_reader.py
+      - src/rtsp_source.py
+      - yolo11n.pt
+    metrics:
+      - outputs/latency.json:
+          cache: false
