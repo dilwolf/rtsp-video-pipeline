@@ -1,0 +1,45 @@
+schema: '2.0'
+stages:
+  fetch_weights:
+    cmd: python -c "from ultralytics import YOLO; YOLO('yolo11n.pt')"
+    outs:
+    - path: yolo11n.pt
+      hash: md5
+      md5: 261474e91b15f5ef14a63c21ce6c0cbb
+      size: 5613764
+  fetch_data:
+    cmd: python src/fetch_data.py
+    deps:
+    - path: src/fetch_data.py
+      hash: md5
+      md5: 8db95a0193ca1753f957e788095f9b4d
+      size: 1360
+    outs:
+    - path: data/sample_1080p.mp4
+      hash: md5
+      md5: 62bcdcbb56c8dc97275c3123b94f7477
+      size: 81337809
+    - path: data/vtest.avi
+      hash: md5
+      md5: d401fe2028f78dd585e2ade0a0d678c0
+      size: 8131690
+  decode_bench:
+    cmd: python src/bench_decode.py --frames 600
+    deps:
+    - path: data/sample_1080p.mp4
+      hash: md5
+      md5: 62bcdcbb56c8dc97275c3123b94f7477
+      size: 81337809
+    - path: src/bench_decode.py
+      hash: md5
+      md5: b54825d5108db509ecf189a56b5993f8
+      size: 4699
+    - path: src/ffmpeg_reader.py
+      hash: md5
+      md5: 6557107f32eb295ef8e5610620a40a66
+      size: 4734
+    outs:
+    - path: outputs/decode_bench.json
+      hash: md5
+      md5: a1c0e610eab05e66ba3c86f1f7e703d7
+      size: 1093
