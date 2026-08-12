@@ -13,3 +13,4 @@ tools/
 outputs/
 mlruns/
 mlflow.db
+*.pt

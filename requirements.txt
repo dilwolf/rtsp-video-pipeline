@@ -1,5 +1,5 @@
 # For CUDA, install torch from the matching wheel index BEFORE this file:
-#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+# `pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126`
 # Otherwise pip resolves the CPU build and --device 0 will not work.
 ultralytics>=8.3
 supervision>=0.26
