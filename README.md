@@ -1,5 +1,7 @@
 # rtsp-video-pipeline
 
+[![ci](https://github.com/dilwolf/rtsp-video-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/dilwolf/rtsp-video-pipeline/actions/workflows/ci.yml)
+
 RTSP ingestion through ffmpeg into NumPy, then YOLO detection model and ByteTrack
 tracking on the live stream, with per-stage latency measured.
 
