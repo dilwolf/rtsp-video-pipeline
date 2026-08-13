@@ -1,6 +1,6 @@
 # rtsp-video-pipeline
 
-RTSP ingestion through ffmpeg into NumPy, then YOLO detection and ByteTrack
+RTSP ingestion through ffmpeg into NumPy, then YOLO detection model and ByteTrack
 tracking on the live stream, with per-stage latency measured.
 
 Every number below is from a run on this machine: RTX 4060 Laptop (8 GB),
