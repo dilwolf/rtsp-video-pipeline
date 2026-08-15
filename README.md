@@ -14,9 +14,7 @@ Python 3.13, torch 2.13 + CUDA 12.6, ultralytics 8.4.117.
 
 ## The stream
 
-I do not own an IP camera, so MediaMTX serves a file over RTSP and the pipeline
-talks to that. This is normal practice for developing against RTSP and I would
-say so in an interview rather than imply otherwise.
+I do not own an IP camera, so MediaMTX serves a file over RTSP .
 
 ```bash
 ./mediamtx                                    # terminal 1
