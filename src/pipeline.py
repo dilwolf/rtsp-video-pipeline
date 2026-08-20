@@ -1,8 +1,6 @@
-"""RTSP -> YOLO detection -> ByteTrack -> annotated output, with stage timings.
-
-Tracking is ultralytics' built-in ByteTrack. supervision's own ByteTrack is
-deprecated as of 0.28 and the separate trackers package would be a third
-dependency for an algorithm already sitting in the one we import anyway.
+"""
+- RTSP -> YOLO detection -> ByteTrack -> annotated output, with stage timings.
+- Tracking is ultralytics' built-in ByteTrack.
 """
 import argparse
 import json
